@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'minecraft';
+  src: url('/fonts/Minecraftia.woff2') format('woff2');
+  font-display: swap;
+}
+
+@keyframes text {
+  0%, 100% { background-position: left; }
+  50% { background-position: right; }
+}
+
+@keyframes tooltip-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text {
+  background-size: 200% auto;
+  animation: text 4s ease-in-out infinite;
+}
+
+@layer utilities {
+  .tooltip-wrapper {
+    @apply absolute z-50 opacity-0 pointer-events-none transition-opacity duration-200 flex flex-col items-center;
+    max-width: min(280px, 90vw);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* Quitamos centrado forzado */
+    /* NO usar left: 50% ni transform aquí */
+  }
+
+  .tooltip-visible {
+    @apply opacity-100 pointer-events-auto;
+    animation: tooltip-fade-in 0.2s ease-out;
+  }
+
+  .tooltip-img {
+    @apply max-w-[290px] rounded shadow-lg border border-white/20;
+  }
+
+  .tooltip-text {
+    @apply text-xs bg-black/80 text-white px-2 py-1 rounded mt-1;
+  }
+
+  .tooltip-above {
+    @apply bottom-full mb-2;
+  }
+
+  .tooltip-below {
+    @apply top-full mt-2;
+  }
+
+  .tooltip-auto {
+    @apply absolute z-50 opacity-0 pointer-events-none transition-opacity duration-200 flex flex-col items-center;
+    max-width: 90vw;
+  }
+
+  .tarjetaNivel {
+    @apply relative;
+  }
+}
+
+/* 👇 Asegura visibilidad absoluta (extra por si acaso) */
+.tooltip-visible {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* 🔒 Por si usás un contenedor externo */
+#tooltip-container {
+  position: fixed;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+#tooltip-container.tooltip-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* estilo para items */
+@layer utilities {
+  .gema {
+    @apply font-minecraft text-[#00cfcf] font-bold align-middle relative top-[4px];
+  }
+  .gris {
+    @apply font-minecraft text-[#c0c0c0] font-bold align-middle relative top-[4px];
+  }
+  .frasco-estus {
+    @apply font-minecraft text-[#ffaa00] font-bold align-middle relative top-[4px];
+  }
+
+}
+
+

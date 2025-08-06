@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TarjetaNivel from '../../components/tarjetaNivel.astro';
+
+---
+
+<Layout>
+  <div class="text-center mb-10">
+    <h2 class="text-4xl font-bold text-green-400">Niveles de la Dungeon</h2>
+  </div>
+
+  <div class="flex flex-col items-center gap-6 px-4 md:px-10">
+    <TarjetaNivel titulo="Tutorial Inicial: Primeros pasos en Dungeon RPG">
+      <p>Bienvenido a <strong>Dungeon RPG</strong>, un servidor con mecánicas lineales que giran en torno al <strong>mana</strong>, la <strong>stamina</strong> y la progresión a través del farmeo de ítems. En este mundo, cada paso y desicion que tomes seran muy importantes, y comenzar con buen pie puede marcar la diferencia.</p>
+    <div class="flex flex-col md:flex-row items-center gap-6 my-6">
+      <div class="md:w-1/2">
+        <p>
+          Lo primero que vas a hacer al entrar con <code>/warp tutorial</code> es leer los hologramas que aparecen a tu alrededor. Prestales atención porque tienen info importante para empezar bien. Después de eso, si te movés unos bloques y girás a la izquierda, te vas a encontrar con el <strong>primer NPC</strong> del tutorial. Este personaje es clave: va a darte tu primera misión y te va a guiar en los conceptos básicos del juego.
+        </p>
+      </div>
+      <div class="md:w-1/2 mt-4 md:mt-0">
+        <video src="/videos/misionNpc1.mp4" autoplay muted loop playsinline class="rounded-xl shadow-lg w-full" />
+      </div>
+    </div>
+    <p>📘 <strong>¡Leé bien las misiones!</strong> Aunque parezcan simples, están pensadas para enseñarte las bases del sistema. Si algo no te queda claro, no dudes en usar <code>/helpop</code> y un staff te va a dar una mano.</p>
+
+  <div class="flex flex-col md:flex-row justify-center items-center gap-6 my-6 max-w-5xl w-full mx-auto">
+    <div class="md:w-1/3">
+      <img src="/img/consultaMision.jpeg" alt="Panel de Quest" class="rounded-xl shadow-lg max-w-[290px] " />
+    </div>
+    <div class="md:w-1/2 mt-4 md:mt-0 text-white">
+      <p>
+        El sistema de misiones <code>/quest</code> es clave para seguir el progreso del tutorial y del juego en general. Desde ahí podés ver el <strong>nombre de la misión</strong>, su <strong>estado actual</strong> (aceptada, en progreso, completada o no realizada), y también <strong>las recompensas</strong> que obtendrás al terminarla.
+      </p>
+      <p class="mt-3">
+        Además, te permite <strong>leer los diálogos pasados</strong> con el NPC, por si se perdieron en el chat, lo que es súper útil para no perderte ningún detalle. Por ahora, solo vamos a concentrarnos en la <strong>primera misión</strong>, que vas a aceptar al hablar con el primer NPC que te encontrás en el tutorial.
+      </p>
+    </div>
+  </div>
+
+    <div>
+      La primera parte de la misión te va a explicar algunas cosas importantes, y te va a mandar a buscar un
+      <span data-tooltip-trigger class="relative group inline-block cursor-pointer ml-1">
+        <em class="relative z-10 animate-sparkle frasco-estus">Frasco de Estus</em>&nbsp;
+        <div data-tooltip class="tooltip-auto">
+          <img src="/img/frascoDeEstus.png" alt="Frasco de Estus" class="tooltip-img" />
+          <span class="tooltip-text">Poción curativa +25 de vida</span>
+        </div>
+      </span>
+      que está en un cofre cerca del acantilado mas adelante. Ese frasco reaparece cada algunas horas y es muy útil porque regenera bastante vida. Hay muy pocos objetos en Dungeon que restauren así de golpe sin pedirte maná ni estamina. Después de abrir el cofre, el NPC te va a pedir que vuelvas para darte unas indicaciones más.
+    </div>
+
+
+      <div>
+        Avanzando un poco más, justo en el centro del área inferior, vas a encontrar una espada llamada
+        <span class="tarjetaNivel" data-tooltip-trigger>
+          <em class="relative z-10 animate-sparkle gris">Filo de Nacimiento</em>&nbsp;
+          <div class="tooltip-wrapper" data-tooltip>
+            <img src="/img/filoNacimiento.png" alt="Filo de Nacimiento" class="tooltip-img" />
+            <span class="tooltip-text">Espada inicial con +20% XP</span>
+          </div>
+        </span>
+
+        Está al lado del segundo NPC y es probablemente una de las armas más útiles para empezar.
+      </div>
+
+      <p>⚔️ Esta espada te da un <strong>+20% de XP</strong> mientras la usás. Asegurate de agarrarla y subir al menos un nivel antes de continuar. Te va a facilitar mucho el camino.</p>
+
+      <p>La misión continúa cerca del tercer NPC. Al lado suyo vas a encontrar un pico. Con él, podés empezar a minar bloques de <strong>ferrosil</strong> (mena de hierro). Te recomendamos juntar al menos 10 unidades.</p>
+
+      <p>Una vez que tengas los materiales, bajá por el pozo más cercano. Ahí te espera el cuarto NPC y tu primer enfrentamiento serio: unos <strong>pillagers</strong> que protegen un ítem necesario para mejorar la espada.</p>
+
+      <p>Si ya tenés suficiente ferrosil, podés usarlo directamente para reforzar tu <em>Filo de Nacimiento</em>. Pero si querés ir más allá, explorá cómo cocinar ese material para obtener <strong>ferrita pura</strong> y después <strong>frag ferrico</strong>, ideal para mejorar la Filo de Nacimiento.</p>
+
+      <p>🪙 Mientras avanzás, prestá atención a los <strong>cofres ocultos</strong> y a los <strong>hologramas</strong> flotantes que dan pistas importantes. Cada rincón puede esconder algo valioso.</p>
+
+      <div>
+        El tramo final del tutorial te lleva por una escalera en espiral. En la cima, te espera el último NPC. Completando esta etapa, vas a recibir una
+        <span data-tooltip-trigger class="relative group inline-block cursor-pointer ml-1">
+          <em class="relative z-10 animate-sparkle gema">Gema de Vigor II</em>&nbsp;
+          <div data-tooltip class="tooltip-auto">
+            <img src="/img/gemaVigor2.png" alt="Gema de Vigor II" class="tooltip-img"/>
+            <span class="tooltip-text">Aumento de daño para tus armas</span>
+          </div>
+        </span>
+        que podés colocar en tu espada para mejorar aún más tu rendimiento.
+      </div>
+
+      <p>🔎 <span class="text-yellow-300 font-semibold">Explorá todo con atención. Leé las misiones y no tengas miedo de pedir ayuda. ¡Tu aventura recién empieza!</span></p>
+    </TarjetaNivel>
+  </div>
+</Layout>
