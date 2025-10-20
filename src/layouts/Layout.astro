@@ -1,7 +1,13 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 const { title } = Astro.props;
-const rutaActual = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
+// Normalizamos la ruta actual quitando el base para comparar
+let rutaActual = Astro.url.pathname;
+const baseTrim = base.endsWith("/") ? base.slice(0, -1) : base;
+if (baseTrim && rutaActual.startsWith(baseTrim)) {
+  rutaActual = rutaActual.slice(baseTrim.length) || "/";
+}
 ---
 
 <html lang="es">
@@ -13,66 +19,97 @@ const rutaActual = Astro.url.pathname;
 
   <body class="bg-black text-white min-h-screen">
     <!-- Imagen de fondo -->
-    <div class="fixed inset-0 -z-10 bg-[url('/bg.png')] bg-cover bg-center"></div>
+    <div
+      class="fixed inset-0 -z-10 bg-cover bg-center"
+      style={`background-image: url(${base}bg.png);`}
+    >
+    </div>
 
     <!-- Contenido -->
     <div class="min-h-screen py-10 px-4 flex justify-center items-start">
-      <div class="max-w-[1440px] w-full mx-auto flex rounded-2xl bg-[#0e1628e6] backdrop-blur px-6 py-8 shadow-xl">
-
+      <div
+        class="max-w-[1440px] w-full mx-auto flex rounded-2xl bg-[#0e1628e6] backdrop-blur px-6 py-8 shadow-xl"
+      >
         <!-- Sidebar -->
         <aside class="w-64 pr-6 border-r border-white/10">
-          <h1 class="text-3xl font-extrabold bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-text mb-10">
+          <h1
+            class="text-3xl font-extrabold bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-text mb-10"
+          >
             Wiki Dungeon
           </h1>
           <nav class="space-y-3 text-white text-base">
-            <a href="/contenido/inicio"
+            <a
+              href={`${base}contenido/inicio`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/inicio' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/inicio"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Inicio
             </a>
-            <a href="/contenido/niveles"
+            <a
+              href={`${base}contenido/niveles`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/niveles' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/niveles"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Niveles
             </a>
-            <a href="/contenido/crafteos"
+            <a
+              href={`${base}contenido/crafteos`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/crafteos' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/crafteos"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Crafteos
             </a>
-            <a href="/contenido/bugs"
+            <a
+              href={`${base}contenido/bugs`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/bugs' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/bugs"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Bugs
             </a>
-            <a href="/contenido/comandos"
+            <a
+              href={`${base}contenido/comandos`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/comandos' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/comandos"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Comandos
             </a>
-            <a href="/contenido/warps"
+            <a
+              href={`${base}contenido/warps`}
               class={`block px-2 py-1 rounded transition-all duration-200 ${
-                rutaActual === '/contenido/warps' ? 'bg-green-400/20 font-semibold' : 'hover:bg-green-400/10'
-              }`}>
+                rutaActual === "/contenido/warps"
+                  ? "bg-green-400/20 font-semibold"
+                  : "hover:bg-green-400/10"
+              }`}
+            >
               Warps
             </a>
           </nav>
         </aside>
 
         <!-- Contenido principal -->
-        <main class="flex-1 pl-6 max-h-[calc(93vh-5rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-green-500/50">
-
+        <main
+          class="flex-1 pl-6 max-h-[calc(93vh-5rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-green-500/50"
+        >
           <h2 class="text-3xl font-bold text-green-400 mb-6">{title}</h2>
           <slot />
         </main>
-
       </div>
     </div>
-    <script type="module" src="/scripts/tooltip.js"></script>
+    <script type="module" src={`${base}scripts/tooltip.js`}></script>
   </body>
 </html>

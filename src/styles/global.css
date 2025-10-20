@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Nota: usa rutas relativas a /public con el BASE_URL manejado por Astro en HTML; CSS cargado desde src mantiene la raíz pública. */
+/* Fuente Minecraft: usa ruta pública; con base configurado, /fonts -> {BASE_URL}fonts */
 @font-face {
   font-family: 'minecraft';
   src: url('/fonts/Minecraftia.woff2') format('woff2');
