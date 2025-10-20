@@ -9,26 +9,41 @@ const base = import.meta.env.BASE_URL;
     <title>Wiki Dungeon MyCraft</title>
   </head>
 
-  <body class="bg-gradient-to-b from-[#0e1628] via-[#1a233a] to-[#0c0c0c] text-white min-h-screen flex items-center justify-center px-0 py-0">
+  <body
+    class="bg-gradient-to-b from-[#0e1628] via-[#1a233a] to-[#0c0c0c] text-white min-h-screen flex items-center justify-center px-0 py-0"
+  >
     <main class="max-w-[400px] w-full flex flex-col items-center gap-4">
       <!-- Logo / Imagen -->
       <div class="flex justify-center w-full pt-6">
-        <img src={`${base}Mycraft.png`} alt="Logo Wiki Dungeon" class="w-20 sm:w-32 md:w-48 animate-pulse drop-shadow-[0_0_1rem_#22c55e]" />
+        <img
+          src={`${base}Mycraft.png`}
+          alt="Logo Wiki Dungeon"
+          class="w-20 sm:w-32 md:w-48 animate-pulse drop-shadow-[0_0_1rem_#22c55e]"
+        />
       </div>
 
       <!-- Contenido principal -->
-      <div class="bg-[#101a2f]/80 backdrop-blur border border-white/10 rounded-2xl p-3 sm:p-5 md:p-8 shadow-xl w-full mt-2">
-        <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-green-400 drop-shadow-[0_0_0.3rem_#22c55e] text-center tracking-wide">
+      <div
+        class="bg-[#101a2f]/80 backdrop-blur border border-white/10 rounded-2xl p-3 sm:p-5 md:p-8 shadow-xl w-full mt-2"
+      >
+        <h1
+          class="text-lg sm:text-xl md:text-2xl font-bold text-green-400 drop-shadow-[0_0_0.3rem_#22c55e] text-center tracking-wide"
+        >
           Wiki Dungeon MyCraft
         </h1>
-        <p class="mt-2 text-xs sm:text-sm md:text-base text-slate-300 text-center">
+        <p
+          class="mt-2 text-xs sm:text-sm md:text-base text-slate-300 text-center"
+        >
           Guía para jugadores nuevos de la modalidad Dungeon.
         </p>
         <p class="mt-1 text-xs text-slate-400 italic text-center">
           “Prepárate para conquistar la Dungeon...”
         </p>
         <div class="mt-4 flex justify-center gap-2 flex-wrap">
-          <a href={`${base}contenido/inicio`} class="px-4 py-2 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-xs sm:text-sm transition shadow">
+          <a
+            href={`${base}contenido/inicio`}
+            class="px-4 py-2 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-xs sm:text-sm transition shadow"
+          >
             👉 Comenzar
           </a>
         </div>
