@@ -26,75 +26,118 @@ if (baseTrim && rutaActual.startsWith(baseTrim)) {
     </div>
 
     <!-- Menú superior profesional -->
-    <div
-      class="min-h-screen flex flex-col items-center justify-start bg-gradient-to-b from-[#0e1628] via-[#1a233a] to-[#0c0c0c] px-0 md:px-2 py-0 md:py-4"
-    >
-      <nav
-        class="w-full flex justify-between items-center bg-[#101a2f]/80 backdrop-blur border-b border-white/10 px-2 py-2 md:rounded-t-2xl shadow-md sticky top-0 z-20"
-      >
-        <h1
-          class="text-lg md:text-2xl font-extrabold bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-text tracking-wide"
-        >
-          Wiki Dungeon
-        </h1>
-        <div class="flex gap-1 md:gap-3">
-          <a
-            href={`${base}contenido/inicio`}
-            title="Inicio"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/inicio" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">home</span></a
-          >
-          <a
-            href={`${base}contenido/niveles`}
-            title="Niveles"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/niveles" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">layers</span></a
-          >
-          <a
-            href={`${base}contenido/crafteos`}
-            title="Crafteos"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/crafteos" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">build</span></a
-          >
-          <a
-            href={`${base}contenido/bugs`}
-            title="Bugs"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/bugs" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">bug_report</span></a
-          >
-          <a
-            href={`${base}contenido/comandos`}
-            title="Comandos"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/comandos" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">terminal</span></a
-          >
-          <a
-            href={`${base}contenido/warps`}
-            title="Warps"
-            class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/warps" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
-            ><span class="material-icons md-18">explore</span></a
-          >
-        </div>
-      </nav>
+    <div class="min-h-screen py-4 px-2 flex justify-center items-start">
       <div
-        class="w-full max-w-[600px] md:max-w-[1440px] mx-auto flex flex-col rounded-b-2xl bg-[#0e1628e6] backdrop-blur px-2 md:px-6 py-4 md:py-8 shadow-xl"
+        class="max-w-[1440px] w-full mx-auto flex flex-col md:flex-row rounded-2xl bg-[#0e1628e6] backdrop-blur px-2 md:px-6 py-4 md:py-8 shadow-xl"
       >
+        <!-- Sidebar móvil (menú superior profesional) -->
+        <aside class="block md:hidden w-full mb-4">
+          <nav
+            class="flex justify-between items-center bg-[#101a2f]/80 backdrop-blur border-b border-white/10 px-2 py-2 rounded-t-2xl shadow-md sticky top-0 z-20"
+          >
+            <h1
+              class="text-lg font-extrabold bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-text tracking-wide"
+            >
+              Wiki Dungeon
+            </h1>
+            <div class="flex gap-1">
+              <a
+                href={`${base}contenido/inicio`}
+                title="Inicio"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/inicio" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">home</span></a
+              >
+              <a
+                href={`${base}contenido/niveles`}
+                title="Niveles"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/niveles" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">layers</span></a
+              >
+              <a
+                href={`${base}contenido/crafteos`}
+                title="Crafteos"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/crafteos" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">build</span></a
+              >
+              <a
+                href={`${base}contenido/bugs`}
+                title="Bugs"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/bugs" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">bug_report</span></a
+              >
+              <a
+                href={`${base}contenido/comandos`}
+                title="Comandos"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/comandos" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">terminal</span></a
+              >
+              <a
+                href={`${base}contenido/warps`}
+                title="Warps"
+                class={`p-2 rounded-lg transition-all duration-200 ${rutaActual === "/contenido/warps" ? "bg-green-400/20" : "hover:bg-green-400/10"}`}
+                ><span class="material-icons md-18">explore</span></a
+              >
+            </div>
+          </nav>
+          <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+          />
+        </aside>
+        <!-- Sidebar escritorio -->
+        <aside
+          class="hidden md:block w-64 pr-6 border-r border-white/10 flex-shrink-0"
+        >
+          <h1
+            class="text-3xl font-extrabold bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-text mb-10"
+          >
+            Wiki Dungeon
+          </h1>
+          <nav class="space-y-3 text-white text-base">
+            <a
+              href={`${base}contenido/inicio`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/inicio" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Inicio</a
+            >
+            <a
+              href={`${base}contenido/niveles`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/niveles" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Niveles</a
+            >
+            <a
+              href={`${base}contenido/crafteos`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/crafteos" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Crafteos</a
+            >
+            <a
+              href={`${base}contenido/bugs`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/bugs" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Bugs</a
+            >
+            <a
+              href={`${base}contenido/comandos`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/comandos" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Comandos</a
+            >
+            <a
+              href={`${base}contenido/warps`}
+              class={`block px-2 py-1 rounded transition-all duration-200 ${rutaActual === "/contenido/warps" ? "bg-green-400/20 font-semibold" : "hover:bg-green-400/10"}`}
+              >Warps</a
+            >
+          </nav>
+        </aside>
+        <!-- Contenido principal -->
         <main
           class="flex-1 pt-2 md:pl-6 max-h-full overflow-y-auto pr-0 md:pr-2 scrollbar-thin scrollbar-thumb-green-500/50"
         >
           <h2
-            class="text-base md:text-2xl font-bold text-green-400 mb-2 md:mb-6 tracking-wide"
+            class="text-base md:text-3xl font-bold text-green-400 mb-2 md:mb-6 tracking-wide"
           >
             {title}
           </h2>
           <slot />
         </main>
       </div>
-      <!-- Material Icons CDN -->
-      <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"
-      />
     </div>
     <script type="module" src={`${base}scripts/tooltip.js`}></script>
   </body>
